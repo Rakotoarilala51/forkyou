@@ -17,4 +17,5 @@ func init(){
 	}
 	rootCmd.AddCommand(gogit.SearchCmd)
 	rootCmd.AddCommand(gogit.DocsCmd)
+	rootCmd.AddCommand(gogit.CloneCmd)
 }
