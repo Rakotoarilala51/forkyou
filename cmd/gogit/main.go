@@ -1,9 +1,15 @@
 package main
-import(
-	"github/spf13/cobra"
+
+import (
+	"github.com/Rakotoarilala51/gogit"
+	"github.com/spf13/cobra"
 )
 
-var rootCmd = &cobra.Command()
+var rootCmd = &cobra.Command{}
+
 func main(){
-	
+	rootCmd.Execute()
+}
+func init(){
+	rootCmd.AddCommand(gogit.SearchCmd)
 }
