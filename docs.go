@@ -1,9 +1,24 @@
 package gogit
 
-import "github.com/spf13/cobra"
+import (
+	"fmt"
+	"log"
+
+	"github.com/spf13/cobra"
+)
 
 var DocsCmd = &cobra.Command{
 	Use: "docs",
 	Short: "read documentation for a repository",
-	Run: func(cmd *cobra.Command, args []string) {},
+	Run: func(cmd *cobra.Command, args []string) {
+		if len(args)<=0{
+			log.Fatalln("You must Supply repository argument")
+		}
+		content := GetRepositoryReadme(args[0])
+		fmt.Println(content)
+	},
+}
+
+func GetRepositoryReadme(repository string) string{
+	return repository
 }
