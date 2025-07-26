@@ -16,4 +16,5 @@ func init(){
 		Short: "Project Forking Tool for github",
 	}
 	rootCmd.AddCommand(gogit.SearchCmd)
+	rootCmd.AddCommand(gogit.DocsCmd)
 }
