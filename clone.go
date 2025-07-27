@@ -23,6 +23,11 @@ var ref string
 var create bool
 
 func CloneRepository(repository string) error{
+	repo , err := NewGHRepo(repository)
+	if err !=nil{
+		return err
+	}
+	repo.Clone()
 	return nil
 }
 
