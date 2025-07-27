@@ -1,4 +1,4 @@
-module github.com/Rakotoarilala51/gogit
+module github.com/Rakotoarilala51/forkyou
 
 go 1.24.4
 

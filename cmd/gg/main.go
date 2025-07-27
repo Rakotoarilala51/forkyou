@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Rakotoarilala51/gogit"
+	"github.com/Rakotoarilala51/forkyou"
 	"github.com/spf13/cobra"
 )
 
@@ -12,10 +12,10 @@ func main(){
 }
 func init(){
 	rootCmd  = &cobra.Command{
-		Use: "gogit",
+		Use: "forkyou",
 		Short: "Project Forking Tool for github",
 	}
-	rootCmd.AddCommand(gogit.SearchCmd)
-	rootCmd.AddCommand(gogit.DocsCmd)
-	rootCmd.AddCommand(gogit.CloneCmd)
+	rootCmd.AddCommand(forkyou.SearchCmd)
+	rootCmd.AddCommand(forkyou.DocsCmd)
+	rootCmd.AddCommand(forkyou.CloneCmd)
 }

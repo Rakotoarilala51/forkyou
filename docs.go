@@ -1,4 +1,4 @@
-package gogit
+package forkyou
 
 import (
 	"fmt"
