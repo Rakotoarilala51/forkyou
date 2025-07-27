@@ -18,4 +18,5 @@ func init(){
 	rootCmd.AddCommand(forkyou.SearchCmd)
 	rootCmd.AddCommand(forkyou.DocsCmd)
 	rootCmd.AddCommand(forkyou.CloneCmd)
+	rootCmd.AddCommand(forkyou.ForkCmd)
 }
