@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/Rakotoarilala51/forkyou"
@@ -25,5 +26,8 @@ func init(){
 	viper.SetDefault("location", os.Getenv("HOME"))
 	viper.SetConfigName("forkyou")
 	viper.AddConfigPath(".")
-	viper.ReadInConfig()
+	if err:=viper.ReadInConfig(); err != nil{
+		fmt.Println("No configuration file found")
+	}
+	viper.SetDefault("location", os.Getenv("HOME"))
 }
