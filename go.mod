@@ -3,7 +3,13 @@ module github.com/Rakotoarilala51/forkyou
 go 1.24.4
 
 require (
-	github.com/Rakotoarilala51/rin v0.0.0-20250727052140-f97e35f87a60 // indirect
+	github.com/Rakotoarilala51/rin v0.1.0
+	github.com/spf13/cobra v1.9.1
+	github.com/spf13/viper v1.20.1
+	gopkg.in/src-d/go-git.v4 v4.13.1
+)
+
+require (
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
@@ -17,9 +23,7 @@ require (
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.12.0 // indirect
 	github.com/spf13/cast v1.7.1 // indirect
-	github.com/spf13/cobra v1.9.1 // indirect
 	github.com/spf13/pflag v1.0.6 // indirect
-	github.com/spf13/viper v1.20.1 // indirect
 	github.com/src-d/gcfg v1.4.0 // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
 	github.com/xanzy/ssh-agent v0.2.1 // indirect
@@ -30,7 +34,6 @@ require (
 	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	gopkg.in/src-d/go-billy.v4 v4.3.2 // indirect
-	gopkg.in/src-d/go-git.v4 v4.13.1 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

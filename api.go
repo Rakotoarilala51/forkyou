@@ -12,7 +12,8 @@ func GithubAPI() *rin.API {
 		api = rin.NewApi("https://api.github.com")
 		token := viper.GetString("token")
 		api.SetAuth(rin.NewAuthToken(token))
-		//api.AddRessource()
+		api.AddRessource("fork", GetForkRessource())
+		api.AddRessource("search", GetSearchRessource())
 	}
 	return api
 }
