@@ -25,5 +25,5 @@ func init(){
 	viper.SetDefault("location", os.Getenv("HOME"))
 	viper.SetConfigName("forkyou")
 	viper.AddConfigPath(".")
-	viper.ReadConfig()
+	viper.ReadInConfig()
 }

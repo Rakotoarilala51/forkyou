@@ -1,9 +1,11 @@
 package forkyou
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var CloneCmd = &cobra.Command{
@@ -13,7 +15,7 @@ var CloneCmd = &cobra.Command{
 		if len(args)<=0 {
 			log.Fatalln("You must supply repository name")
 		}
-		if err:=CloneRepository(args[0]); err!=nil{
+		if err:=CloneRepository(args[0], ref, create); err!=nil{
 			log.Fatalln("Error when cloning repository:", err)
 		}
 	},
@@ -22,12 +24,15 @@ var CloneCmd = &cobra.Command{
 var ref string
 var create bool
 
-func CloneRepository(repository string) error{
+func CloneRepository(repository string, ref string, shouldCreate bool) error{
 	repo , err := NewGHRepo(repository)
 	if err !=nil{
 		return err
 	}
-	repo.Clone()
+	if err := repo.Clone(viper.GetString("location")); err!=nil{
+		return err
+	}
+	fmt.Printf("Cloned Repository to:%s", repo.RepoDir)
 	return nil
 }
 

@@ -2,7 +2,6 @@ package forkyou
 
 import (
 	"fmt"
-	"log"
 	"path/filepath"
 	"strings"
 
@@ -31,13 +30,14 @@ func (g *GHRepo) RepositoryURL() string{
 }
 func (g *GHRepo) Clone(dest string) error{
 	fullPath := filepath.Join(dest, fmt.Sprintf("%s-%s", g.owner, g.project))
-	repo, err := git.PlainClone(fullPath, &git.CloneOptions{
+	fmt.Println("Trying to clone to:", fullPath)
+	repo, err := git.PlainClone(fullPath,false, &git.CloneOptions{
 		URL: g.RepositoryURL(),
 	})
 	if err != nil {
 		return err
 	}
-	g.repo := repo
-	g.RepoDir := fullPath
+	g.repo = repo
+	g.RepoDir = fullPath
 	return nil
 }
