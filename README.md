@@ -9,8 +9,8 @@ Its main feature is **forking repositories** 🔱, but it also supports other fu
 
 - 🔱 Fork GitHub repositories by specifying `owner/repository`
 - 🔍 Search GitHub repositories by keywords
-- 🔃 Create pull requests (planned / implemented)
-- 📚 Read GitHub repository documentation (planned / implemented)
+- 🔃 Create pull requests (planned)
+- 📚 Read GitHub repository documentation (planned)
 - ⚙️ Other GitHub-related actions via API integration
 
 ---
