@@ -14,6 +14,7 @@ func GithubAPI() *rin.API {
 		api.SetAuth(rin.NewAuthToken(token))
 		api.AddRessource("fork", GetForkRessource())
 		api.AddRessource("search", GetSearchRessource())
+		api.AddRessource("docs", GetReadmeRessource())
 	}
 	return api
 }

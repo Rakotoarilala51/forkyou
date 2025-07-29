@@ -49,7 +49,7 @@ func ForkSuccess(resp *http.Response) error{
 	}
 	respContent := ForkResponse{}
 	json.Unmarshal(content, &respContent)
-	fmt.Printf("Forked to repository: %s", respContent.FullName)
+	fmt.Println("Forked to repository: %s", respContent.FullName)
 	return nil
 }
 func GetForkRessource() *rin.RestRessources{

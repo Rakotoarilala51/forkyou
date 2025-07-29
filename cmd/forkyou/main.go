@@ -24,7 +24,7 @@ func init(){
 	rootCmd.AddCommand(forkyou.CloneCmd)
 	rootCmd.AddCommand(forkyou.ForkCmd)
 	viper.SetDefault("location", os.Getenv("HOME"))
-	viper.SetConfigName("forkyou")
+	viper.SetConfigName("lamine")
 	viper.AddConfigPath(".")
 	if err:=viper.ReadInConfig(); err != nil{
 		fmt.Println("No configuration file found")
