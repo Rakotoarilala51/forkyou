@@ -8,13 +8,17 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var rootCmd = &cobra.Command{
+var RootCmd = &cobra.Command{
 	Use:   "forkyou",
 	Short: "CLI tool to fork repo on github",
 }
 
+func Execute() {
+	cobra.CheckErr(RootCmd.Execute())
+}
+
 func init() {
-	rootCmd.AddCommand(
+	RootCmd.AddCommand(
 		fork.ForkCmd,
 		clone.CloneCmd,
 		search.SearchCmd,
