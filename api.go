@@ -8,7 +8,7 @@ import (
 var api *rin.API
 
 func GithubAPI() *rin.API {
-	if api ==nil{
+	if api == nil {
 		api = rin.NewApi("https://api.github.com")
 		token := viper.GetString("token")
 		api.SetAuth(rin.NewAuthToken(token))

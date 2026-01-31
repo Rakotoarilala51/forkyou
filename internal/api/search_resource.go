@@ -1,4 +1,4 @@
-package forkyou
+package api
 
 import (
 	"encoding/json"
@@ -11,13 +11,6 @@ import (
 	"github.com/Rakotoarilala51/rin"
 	"github.com/spf13/cobra"
 )
-
-type SearchResponse struct {
-	Results []*SearchResult `json:"items"`
-}
-type SearchResult struct {
-	FullName string `json:"full_name"`
-}
 
 var SearchCmd = &cobra.Command{
 	Use:   "search",

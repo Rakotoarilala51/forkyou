@@ -1,4 +1,4 @@
-package forkyou
+package repo
 
 import (
 	"fmt"

@@ -1,35 +1,15 @@
-package forkyou
+package api
 
 import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
 
 	"github.com/Rakotoarilala51/rin"
-	"github.com/spf13/cobra"
 )
-
-type ReadmeResponse struct {
-	Content string `json:"content"`
-}
-
-var DocsCmd = &cobra.Command{
-	Use:   "docs",
-	Short: "read documentation for a repository",
-	Run: func(cmd *cobra.Command, args []string) {
-		if len(args) <= 0 {
-			log.Fatalln("You must Supply repository argument")
-		}
-		if err := GetRepositoryReadme(args[0]); err != nil {
-			fmt.Println("Error when reading docs: ", err)
-		}
-
-	},
-}
 
 func GetRepositoryReadme(repository string) error {
 	values := strings.Split(repository, "/")

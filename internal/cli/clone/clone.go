@@ -1,9 +1,10 @@
-package forkyou
+package clone
 
 import (
 	"fmt"
 	"log"
 
+	"github.com/Rakotoarilala51/forkyou/internal/core/repo"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -25,20 +26,19 @@ var ref string
 var create bool
 
 func CloneRepository(repository string, ref string, shouldCreate bool) error {
-	repo, err := NewGHRepo(repository)
+	repoGh, err := repo.NewGHRepo(repository)
 	if err != nil {
 		return err
 	}
-	if err := repo.Clone(viper.GetString("location")); err != nil {
+
+	cloneService := repo.NewCloneService(repoGh)
+	if err := cloneService.Execute(viper.GetString("location"), ref, shouldCreate); err != nil {
 		return err
 	}
-	if err := repo.Checkout(ref, shouldCreate); err != nil {
-		return err
-	}
-	fmt.Printf("Cloned Repository to:%s", repo.RepoDir)
+
+	fmt.Println("Repository cloned successfully")
 	return nil
 }
-
 func init() {
 	CloneCmd.PersistentFlags().StringVar(&ref, "ref", "master", "specific reference to checkout")
 	CloneCmd.PersistentFlags().BoolVar(&create, "create", false, "create the reference if it doesn't exist")
