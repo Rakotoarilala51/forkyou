@@ -1,19 +1,19 @@
 package config
 
 import (
-	"fmt"
 	"os"
+	"path/filepath"
 
+	"github.com/Rakotoarilala51/forkyou/internal/filesystem"
 	"github.com/spf13/viper"
 )
 
-func InitConfig() {
-
-	viper.SetDefault("location", os.Getenv("HOME"))
-	viper.SetConfigName("lamine")
-	viper.AddConfigPath(".")
-	if err := viper.ReadInConfig(); err != nil {
-		fmt.Println("No configuration file found")
+func InitConfig() error {
+	configDIr := filepath.Join(os.Getenv("HOME"), ".forkyou", "config.yaml")
+	if err := filesystem.EnsureFile(configDIr); err != nil {
+		return err
 	}
-	viper.SetDefault("location", os.Getenv("HOME"))
+
+	viper.SetConfigFile(configDIr)
+	return nil
 }
