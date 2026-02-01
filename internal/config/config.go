@@ -1,6 +1,7 @@
 package config
 
 import (
+	"log"
 	"os"
 	"path/filepath"
 
@@ -10,10 +11,25 @@ import (
 
 func InitConfig() error {
 	configDIr := filepath.Join(os.Getenv("HOME"), ".forkyou", "config.yaml")
+	viper.SetConfigFile(configDIr)
+	viper.SetConfigType("yaml")
+	viper.Set("user.token", "")
 	if err := filesystem.EnsureFile(configDIr); err != nil {
 		return err
 	}
-
-	viper.SetConfigFile(configDIr)
+	viper.ReadInConfig()
 	return nil
+}
+
+func AddToken(token string) {
+	viper.Set("user.token", token)
+	if err := viper.WriteConfig(); err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func GetToken() string {
+	token := viper.GetString("user.token")
+
+	return token
 }
