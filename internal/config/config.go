@@ -28,7 +28,7 @@ func InitConfig() error {
 }
 
 func AddToken(token string) {
-	viper.Set("token", token)
+	viper.Set("user.token", token)
 	if err := viper.WriteConfig(); err != nil {
 		log.Fatalln(err)
 	}
